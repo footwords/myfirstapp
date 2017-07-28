@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var coolLabel: UILabel!
     @IBOutlet weak var tenTimes: UILabel!
+    @IBOutlet weak var text1: UITextField!
+    @IBOutlet weak var text2: UITextField!
+    @IBOutlet weak var resultText: UILabel!
+    
     
     var wowsaTapCount = 0
     var coolTapCount = 0
@@ -33,10 +37,16 @@ class ViewController: UIViewController {
         print("Cool Tap Count =", coolTapCount)
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        resultText.text = "Answer is... \(Double(text1.text!)! + Double(text2.text!)!)"
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tenTimes.text = ""
+        resultText.text = ""
     }
 
     override func didReceiveMemoryWarning() {
