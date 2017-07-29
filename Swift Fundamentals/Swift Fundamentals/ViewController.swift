@@ -9,17 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var coolLabel: UILabel!
     @IBOutlet weak var tenTimes: UILabel!
     @IBOutlet weak var text1: UITextField!
     @IBOutlet weak var text2: UITextField!
     @IBOutlet weak var resultText: UILabel!
+    @IBOutlet weak var mathButton: UIButton!
     
     
     var wowsaTapCount = 0
     var coolTapCount = 0
+    var addition = true
     
+    @IBAction func mathSwitch(_ sender: Any) {
+        addition = !addition
+        if addition {
+            mathButton.setTitle("ADD", for: .normal)
+        } else {
+            mathButton.setTitle("SUBTRACT", for: .normal)
+        }
+    }
+
     @IBAction func buttonTapped(_ sender: Any) {
         coolLabel.text = "Wowsa!"
         wowsaTapCount = wowsaTapCount + 1
@@ -38,7 +49,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        resultText.text = "Answer is... \(Double(text1.text!)! + Double(text2.text!)!)"
+        
+        if addition {
+            resultText.text = "Answer is... \(Double(text1.text!)! + Double(text2.text!)!)"
+        } else {
+            resultText.text = "Answer is... \(Double(text1.text!)! - Double(text2.text!)!)"
+        }
     }
     
     
@@ -47,13 +63,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tenTimes.text = ""
         resultText.text = ""
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

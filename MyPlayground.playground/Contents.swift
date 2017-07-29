@@ -1,5 +1,6 @@
- var age = 27
- var weight = 187.56
- 
- age * Int(weight)
- 
+var sunny :Bool = false
+
+sunny = !sunny
+
+sunny
+
